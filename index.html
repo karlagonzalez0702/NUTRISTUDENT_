@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri Student | Plataforma de Nutrición Universitaria</title>
+    <!-- Tailwind CSS para el diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        },
+                        accent: {
+                            500: '#fb923c', // Naranja/Coral para llamados a la acción
+                            600: '#f97316',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Transiciones suaves para los cambios de pestaña */
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+        }
+        /* Animación de latido para el botón de pánico */
+        @keyframes pulse-fast {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .animate-pulse-fast {
+            animation: pulse-fast 1.5s infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <div class="bg-brand-500 text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-apple-whole text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-gray-900">Nutri<span class="text-brand-500">Student</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#solucion" class="text-gray-600 hover:text-brand-500 font-medium transition">La Solución</a>
+                    <a href="#funcionalidades" class="text-gray-600 hover:text-brand-500 font-medium transition">Funcionalidades</a>
+                    <button class="bg-brand-100 text-brand-600 px-4 py-2 rounded-full font-semibold hover:bg-brand-200 transition">Iniciar Sesión</button>
+                    <button class="bg-brand-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-600 shadow-md hover:shadow-lg transition">Únete Gratis</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100 blur-3xl opacity-50"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-accent-500 blur-3xl opacity-20"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-600 text-sm font-semibold mb-6">
+                <i class="fa-solid fa-rocket mr-1"></i> El prototipo definitivo de salud universitaria
+            </span>
+            <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
+                Nutrición inteligente que <br class="hidden md:block"/> se adapta a tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-teal-400">vida y bolsillo</span>.
+            </h1>
+            <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                La primera plataforma que conecta a estudiantes universitarios ocupados con nutriólogos profesionales, utilizando IA para adaptar dietas a exámenes, presupuestos y antojos.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="switchTab('estudiante')" class="bg-brand-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-brand-600 shadow-xl hover:shadow-brand-500/30 transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-graduation-cap mr-2"></i> Soy Estudiante
+                </button>
+                <button onclick="switchTab('nutriologo')" class="bg-white border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold text-lg hover:border-brand-500 hover:text-brand-500 shadow-sm transition transform hover:-translate-y-1">
+                    <i class="fa-solid fa-user-doctor mr-2"></i> Soy Nutriólogo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Prototype Section -->
+    <section id="funcionalidades" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Explora el Ecosistema</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Selecciona el perfil para ver cómo Nutri Student resuelve los problemas de ambas partes.</p>
+            </div>
+
+            <!-- Custom Tabs -->
+            <div class="flex justify-center mb-12">
+                <div class="bg-gray-100 p-1 rounded-2xl inline-flex relative shadow-inner">
+                    <button id="btn-estudiante" onclick="switchTab('estudiante')" class="relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-white bg-brand-500 shadow-md">
+                        App Estudiantes
+                    </button>
+                    <button id="btn-nutriologo" onclick="switchTab('nutriologo')" class="relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-gray-500 hover:text-gray-700">
+                        Portal B2B
+                    </button>
+                </div>
+            </div>
+
+            <!-- Contenido ESTUDIANTE -->
+            <div id="tab-estudiante" class="tab-content active">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Text/Features -->
+                    <div class="space-y-8">
+                        <div class="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-wallet"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Modo Supervivencia</h3>
+                            <p class="text-gray-600">Filtra recetas automáticamente por el costo mínimo de tu zona. Recibe consejos sobre cómo comprar en mercados locales para estirar tu presupuesto.</p>
+                        </div>
+
+                        <div class="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fa-brands fa-google"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Sincronización Académica</h3>
+                            <p class="text-gray-600">Se conecta con tu Google Calendar. Si tienes semana de exámenes, ajustamos tu dieta con alimentos altos en Omega-3 para la memoria y bajos en azúcares para evitar picos de estrés.</p>
+                        </div>
+
+                        <div class="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition cursor-pointer relative overflow-hidden">
+                            <div class="absolute top-0 right-0 p-4 opacity-10 text-8xl text-red-500 transform rotate-12"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                            <div class="w-12 h-12 bg-red-100 text-red-500 rounded-xl flex items-center justify-center text-xl mb-4 animate-pulse-fast">
+                                <i class="fa-solid fa-bell"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Botón de Pánico (Street Food)</h3>
+                            <p class="text-gray-600 mb-4">¿Atrapado en la calle con hambre? Una guía rápida para elegir las opciones menos perjudiciales en puestos callejeros cercanos.</p>
+                            <button onclick="openModal()" class="text-sm font-bold text-red-500 hover:text-red-600 underline">Probar Botón de Pánico <i class="fa-solid fa-arrow-right ml-1"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Mockup UI App -->
+                    <div class="relative mx-auto w-[300px] h-[600px] bg-gray-900 rounded-[3rem] p-4 shadow-2xl border-[8px] border-gray-800">
+                        <div class="absolute top-0 inset-x-0 h-6 bg-gray-900 rounded-t-[2.5rem]"></div>
+                        <div class="w-full h-full bg-gray-50 rounded-[2rem] overflow-hidden flex flex-col relative">
+                            <!-- App Header -->
+                            <div class="bg-brand-500 p-6 text-white rounded-b-3xl shadow-sm">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="font-bold">Hola, Carlos 👋</div>
+                                    <img src="https://ui-avatars.com/api/?name=Carlos&background=fff&color=10b981" class="w-8 h-8 rounded-full">
+                                </div>
+                                <div class="text-sm opacity-90">Presupuesto Semanal</div>
+                                <div class="text-2xl font-bold">$450 MXN</div>
+                            </div>
+                            <!-- App Content -->
+                            <div class="p-4 flex-1 overflow-y-auto">
+                                <div class="bg-red-500 text-white p-4 rounded-2xl mb-4 flex items-center justify-between shadow-md cursor-pointer hover:bg-red-600 transition" onclick="openModal()">
+                                    <div>
+                                        <div class="font-bold text-sm">EMERGENCIA</div>
+                                        <div class="text-xs opacity-90">¿Comer en la calle?</div>
+                                    </div>
+                                    <i class="fa-solid fa-siren-on text-2xl animate-pulse"></i>
+                                </div>
+                                
+                                <h4 class="font-bold text-gray-800 mb-3 text-sm">Tu comida de hoy</h4>
+                                <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 mb-4">
+                                    <div class="w-16 h-16 bg-gray-200 rounded-lg bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');"></div>
+                                    <div>
+                                        <div class="font-bold text-sm text-gray-800">Ensalada de Atún</div>
+                                        <div class="text-xs text-brand-600 font-semibold">Costo: $25 MXN</div>
+                                        <div class="text-[10px] text-gray-500 mt-1"><i class="fa-solid fa-brain"></i> Ideal para estudiar</div>
+                                    </div>
+                                </div>
+
+                                <h4 class="font-bold text-gray-800 mb-3 text-sm">Diario Visual</h4>
+                                <div class="bg-white border-2 border-dashed border-gray-300 p-4 rounded-xl flex flex-col items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-brand-400 transition cursor-pointer">
+                                    <i class="fa-solid fa-camera text-2xl mb-2 text-brand-500"></i>
+                                    <span class="text-xs font-medium">Subir foto de mi almuerzo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido NUTRIÓLOGO -->
+            <div id="tab-nutriologo" class="tab-content">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Mockup UI Dashboard B2B -->
+                    <div class="order-2 md:order-1 relative rounded-2xl bg-white shadow-2xl border border-gray-200 overflow-hidden h-[500px] flex flex-col">
+                        <!-- Dashboard Header -->
+                        <div class="bg-gray-900 text-white p-4 flex justify-between items-center">
+                            <div class="font-bold"><i class="fa-solid fa-chart-pie text-brand-400 mr-2"></i> Portal Nutriólogos</div>
+                            <div class="flex gap-3">
+                                <i class="fa-solid fa-bell text-gray-400 hover:text-white cursor-pointer"></i>
+                                <i class="fa-solid fa-gear text-gray-400 hover:text-white cursor-pointer"></i>
+                            </div>
+                        </div>
+                        <div class="flex flex-1 overflow-hidden">
+                            <!-- Sidebar -->
+                            <div class="w-16 md:w-48 bg-gray-50 border-r border-gray-200 p-2 md:p-4 hidden sm:block">
+                                <div class="text-brand-600 font-bold mb-6 hidden md:block text-sm">Menú Principal</div>
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-3 text-brand-600 bg-brand-50 p-2 rounded-lg cursor-pointer"><i class="fa-solid fa-users"></i><span class="hidden md:block text-sm font-semibold">Pacientes</span></div>
+                                    <div class="flex items-center gap-3 text-gray-500 hover:text-gray-800 p-2 cursor-pointer"><i class="fa-solid fa-calendar-days"></i><span class="hidden md:block text-sm font-medium">Agenda</span></div>
+                                    <div class="flex items-center gap-3 text-gray-500 hover:text-gray-800 p-2 cursor-pointer"><i class="fa-solid fa-robot"></i><span class="hidden md:block text-sm font-medium">Validación IA</span></div>
+                                </div>
+                            </div>
+                            <!-- Main Content -->
+                            <div class="flex-1 p-6 overflow-y-auto bg-gray-50">
+                                <div class="flex justify-between items-end mb-6">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-800">Hola, Dra. Martínez</h3>
+                                        <p class="text-sm text-gray-500">Tienes 3 planes generados por IA pendientes de validar.</p>
+                                    </div>
+                                </div>
+                                <!-- Paciente Card -->
+                                <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-4">
+                                    <div class="flex justify-between items-center border-b border-gray-100 pb-3 mb-3">
+                                        <div class="flex items-center gap-3">
+                                            <img src="https://ui-avatars.com/api/?name=Carlos&background=f3f4f6" class="w-10 h-10 rounded-full">
+                                            <div>
+                                                <div class="font-bold text-sm">Carlos Estudiante</div>
+                                                <div class="text-xs text-orange-500 font-semibold"><i class="fa-solid fa-book-open"></i> Semana de exámenes</div>
+                                            </div>
+                                        </div>
+                                        <span class="bg-green-100 text-green-700 text-xs px-2 py-1 rounded font-bold">Adherencia 85%</span>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <div class="text-xs text-gray-500 mb-1">Diario Visual (Hoy)</div>
+                                            <div class="flex gap-2">
+                                                <div class="w-12 h-12 bg-gray-200 rounded object-cover" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80');"></div>
+                                                <div class="w-12 h-12 bg-gray-100 rounded border border-dashed border-gray-300 flex items-center justify-center text-gray-400 text-xs">Cena</div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="text-xs text-gray-500 mb-1">Plan IA Generado</div>
+                                            <button class="bg-brand-50 text-brand-600 border border-brand-200 px-3 py-1.5 rounded text-xs font-semibold hover:bg-brand-100 w-full flex justify-between items-center transition">
+                                                Revisar y Validar <i class="fa-solid fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Text/Features -->
+                    <div class="order-1 md:order-2 space-y-8">
+                        <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
+                            <div class="w-12 h-12 bg-indigo-100 text-indigo-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-users-viewfinder"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Dashboard de Pacientes</h3>
+                            <p class="text-gray-600">Visualiza en tiempo real el progreso de tus estudiantes. Revisa su hidratación, presupuesto restante y el diario visual con fotos de sus comidas reales.</p>
+                        </div>
+
+                        <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
+                            <div class="w-12 h-12 bg-teal-100 text-teal-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-calendar-check"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Gestión de Citas Integrada</h3>
+                            <p class="text-gray-600">Sistema completo para agendar, confirmar y reprogramar consultas (presenciales o virtuales) directamente dentro del portal, enviando recordatorios por WhatsApp.</p>
+                        </div>
+
+                        <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
+                            <div class="w-12 h-12 bg-purple-100 text-purple-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fa-solid fa-robot"></i> <span class="text-xs ml-1 font-bold">+</span> <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Validación Clínica IA</h3>
+                            <p class="text-gray-600">Nuestra IA genera planes base considerando presupuesto y clases del alumno. Tú tienes el control total: aprueba, ajusta porciones o modifica alimentos con un solo clic.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Botón de Pánico -->
+    <div id="panicModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
+        
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-3xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-md border-4 border-red-500">
+                    <div class="bg-red-500 px-4 py-4 sm:px-6 flex justify-between items-center">
+                        <h3 class="text-lg font-bold leading-6 text-white" id="modal-title"><i class="fa-solid fa-siren-on mr-2"></i> Guía Rápida de Calle</h3>
+                        <button onclick="closeModal()" class="text-white/80 hover:text-white transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+                    </div>
+                    <div class="px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left w-full">
+                                <p class="text-sm text-gray-500 mb-4">¿Qué puesto de comida tienes cerca? Selecciona para ver el "Hack Saludable".</p>
+                                
+                                <div class="space-y-3">
+                                    <div class="border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-red-50 hover:border-red-200 transition" onclick="toggleAdvice('tacos')">
+                                        <div class="flex justify-between items-center font-bold text-gray-800">
+                                            <span>🌮 Puesto de Tacos</span>
+                                            <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
+                                        </div>
+                                        <div id="advice-tacos" class="hidden mt-2 text-sm text-gray-600 bg-white p-2 rounded">
+                                            <strong>Hack:</strong> Pide bistec o pollo en lugar de suadero/pastor. Evita el queso gratinado. Pide ración doble de nopales o cebolla asada. ¡Cuidado con el exceso de salsas cremosas!
+                                        </div>
+                                    </div>
+
+                                    <div class="border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-red-50 hover:border-red-200 transition" onclick="toggleAdvice('pizzas')">
+                                        <div class="flex justify-between items-center font-bold text-gray-800">
+                                            <span>🍕 Pizzería Rápida</span>
+                                            <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
+                                        </div>
+                                        <div id="advice-pizzas" class="hidden mt-2 text-sm text-gray-600 bg-white p-2 rounded">
+                                            <strong>Hack:</strong> Limítate a 2 rebanadas. Evita la orilla rellena de queso. Seca el exceso de grasa de la superficie con una servilleta. Acompáñala con agua, no refresco.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border border-gray-200 rounded-xl p-3 cursor-pointer hover:bg-red-50 hover:border-red-200 transition" onclick="toggleAdvice('tienda')">
+                                        <div class="flex justify-between items-center font-bold text-gray-800">
+                                            <span>🏪 Tienda de Conveniencia (Oxxo/7Eleven)</span>
+                                            <i class="fa-solid fa-chevron-down text-gray-400 text-xs"></i>
+                                        </div>
+                                        <div id="advice-tienda" class="hidden mt-2 text-sm text-gray-600 bg-white p-2 rounded">
+                                            <strong>Hack:</strong> Ignora los hot dogs. Busca cacahuates naturales (no japoneses), atún en agua (venden sobres con galletas habaneras) o un yogurt griego sin azúcar añadido.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="button" class="mt-3 inline-flex w-full justify-center rounded-xl bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto" onclick="closeModal()">Entendido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="bg-brand-500 text-white p-2 rounded-lg inline-flex">
+                        <i class="fa-solid fa-apple-whole"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">Nutri<span class="text-brand-500">Student</span></span>
+                </div>
+                <p class="text-sm text-gray-400 max-w-sm">
+                    Revolucionando la nutrición universitaria mediante inteligencia artificial, accesibilidad y conexión profesional.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Plataforma</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-400 transition">Para Estudiantes</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition">Para Nutriólogos (B2B)</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition">Casos de Éxito</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Compañía</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-brand-400 transition">Sobre Nosotros</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition">Contacto</a></li>
+                    <li><a href="#" class="hover:text-brand-400 transition">Privacidad</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para la interactividad -->
+    <script>
+        function switchTab(tabId) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Restablecer estilos de los botones
+            const btnEstudiante = document.getElementById('btn-estudiante');
+            const btnNutriologo = document.getElementById('btn-nutriologo');
+            
+            btnEstudiante.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-gray-500 hover:text-gray-700";
+            btnNutriologo.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-gray-500 hover:text-gray-700";
+
+            // Activar contenido y botón seleccionado
+            document.getElementById('tab-' + tabId).classList.add('active');
+            
+            if(tabId === 'estudiante') {
+                btnEstudiante.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-white bg-brand-500 shadow-md";
+            } else {
+                btnNutriologo.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-white bg-gray-900 shadow-md";
+            }
+        }
+
+        // Lógica del Modal "Botón de Pánico"
+        function openModal() {
+            document.getElementById('panicModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('panicModal').classList.add('hidden');
+        }
+
+        function toggleAdvice(id) {
+            const el = document.getElementById('advice-' + id);
+            if(el.classList.contains('hidden')) {
+                // Ocultar todos primero (opcional, para modo acordeón)
+                document.querySelectorAll('[id^="advice-"]').forEach(d => d.classList.add('hidden'));
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

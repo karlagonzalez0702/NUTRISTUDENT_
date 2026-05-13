@@ -70,8 +70,8 @@
                     <span class="font-bold text-xl tracking-tight text-gray-900">Nutri<span class="text-brand-500">Student</span></span>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#solucion" class="text-gray-600 hover:text-brand-500 font-medium transition">La Solución</a>
                     <a href="#funcionalidades" class="text-gray-600 hover:text-brand-500 font-medium transition">Funcionalidades</a>
+                    <a href="#planes" class="text-gray-600 hover:text-brand-500 font-medium transition">Planes</a>
                     <button class="bg-brand-100 text-brand-600 px-4 py-2 rounded-full font-semibold hover:bg-brand-200 transition">Iniciar Sesión</button>
                     <button class="bg-brand-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-brand-600 shadow-md hover:shadow-lg transition">Únete Gratis</button>
                 </div>
@@ -129,8 +129,8 @@
 
             <!-- Contenido ESTUDIANTE -->
             <div id="tab-estudiante" class="tab-content active">
+                <!-- ... (Contenido estudiante sin cambios) ... -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <!-- Text/Features -->
                     <div class="space-y-8">
                         <div class="group bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
                             <div class="w-12 h-12 bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
@@ -159,11 +159,9 @@
                         </div>
                     </div>
 
-                    <!-- Mockup UI App -->
                     <div class="relative mx-auto w-[300px] h-[600px] bg-gray-900 rounded-[3rem] p-4 shadow-2xl border-[8px] border-gray-800">
                         <div class="absolute top-0 inset-x-0 h-6 bg-gray-900 rounded-t-[2.5rem]"></div>
                         <div class="w-full h-full bg-gray-50 rounded-[2rem] overflow-hidden flex flex-col relative">
-                            <!-- App Header -->
                             <div class="bg-brand-500 p-6 text-white rounded-b-3xl shadow-sm">
                                 <div class="flex justify-between items-center mb-4">
                                     <div class="font-bold">Hola, Carlos 👋</div>
@@ -172,7 +170,6 @@
                                 <div class="text-sm opacity-90">Presupuesto Semanal</div>
                                 <div class="text-2xl font-bold">$450 MXN</div>
                             </div>
-                            <!-- App Content -->
                             <div class="p-4 flex-1 overflow-y-auto">
                                 <div class="bg-red-500 text-white p-4 rounded-2xl mb-4 flex items-center justify-between shadow-md cursor-pointer hover:bg-red-600 transition" onclick="openModal()">
                                     <div>
@@ -205,11 +202,9 @@
 
             <!-- Contenido NUTRIÓLOGO -->
             <div id="tab-nutriologo" class="tab-content">
+                <!-- ... (Contenido nutriólogo sin cambios) ... -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
-                    
-                    <!-- Mockup UI Dashboard B2B -->
                     <div class="order-2 md:order-1 relative rounded-2xl bg-white shadow-2xl border border-gray-200 overflow-hidden h-[500px] flex flex-col">
-                        <!-- Dashboard Header -->
                         <div class="bg-gray-900 text-white p-4 flex justify-between items-center">
                             <div class="font-bold"><i class="fa-solid fa-chart-pie text-brand-400 mr-2"></i> Portal Nutriólogos</div>
                             <div class="flex gap-3">
@@ -218,7 +213,6 @@
                             </div>
                         </div>
                         <div class="flex flex-1 overflow-hidden">
-                            <!-- Sidebar -->
                             <div class="w-16 md:w-48 bg-gray-50 border-r border-gray-200 p-2 md:p-4 hidden sm:block">
                                 <div class="text-brand-600 font-bold mb-6 hidden md:block text-sm">Menú Principal</div>
                                 <div class="space-y-4">
@@ -227,7 +221,6 @@
                                     <div class="flex items-center gap-3 text-gray-500 hover:text-gray-800 p-2 cursor-pointer"><i class="fa-solid fa-robot"></i><span class="hidden md:block text-sm font-medium">Validación IA</span></div>
                                 </div>
                             </div>
-                            <!-- Main Content -->
                             <div class="flex-1 p-6 overflow-y-auto bg-gray-50">
                                 <div class="flex justify-between items-end mb-6">
                                     <div>
@@ -235,7 +228,6 @@
                                         <p class="text-sm text-gray-500">Tienes 3 planes generados por IA pendientes de validar.</p>
                                     </div>
                                 </div>
-                                <!-- Paciente Card -->
                                 <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-4">
                                     <div class="flex justify-between items-center border-b border-gray-100 pb-3 mb-3">
                                         <div class="flex items-center gap-3">
@@ -267,7 +259,6 @@
                         </div>
                     </div>
 
-                    <!-- Text/Features -->
                     <div class="order-1 md:order-2 space-y-8">
                         <div class="group bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:border-brand-300 hover:shadow-lg transition cursor-pointer">
                             <div class="w-12 h-12 bg-indigo-100 text-indigo-500 rounded-xl flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
@@ -293,14 +284,84 @@
                             <p class="text-gray-600">Nuestra IA genera planes base considerando presupuesto y clases del alumno. Tú tienes el control total: aprueba, ajusta porciones o modifica alimentos con un solo clic.</p>
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / Planes Section -->
+    <section id="planes" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-600 font-bold tracking-wider uppercase text-sm">Elige tu camino</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Planes adaptados a tu vida universitaria</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comienza gratis o mejora tu experiencia con herramientas diseñadas para ahorrarte tiempo y dinero.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                
+                <!-- Plan Basic -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-lg transition relative">
+                    <h3 class="text-xl font-bold text-gray-900">Plan Basic</h3>
+                    <p class="text-sm text-gray-500 mt-1 mb-4 h-10">El Kit de Supervivencia. Ideal para comenzar con hábitos saludables.</p>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold text-gray-900">Gratis</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600">
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Recetario Económico</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Escáner Nutricional</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Seguimiento de Hábitos</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Notificaciones Estándar</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Compras inteligentes</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Comunidad y apoyo</span></li>
+                    </ul>
+                    <button class="w-full py-3 px-4 bg-brand-50 text-brand-600 font-bold rounded-xl hover:bg-brand-100 transition">Comenzar Gratis</button>
+                </div>
+
+                <!-- Plan Pro -->
+                <div class="bg-white rounded-3xl p-8 border-2 border-brand-500 shadow-xl relative transform md:-translate-y-4">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                        Más Popular
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900">Plan Pro</h3>
+                    <p class="text-sm text-gray-500 mt-1 mb-4 h-10">Organización y Tiempo. Para no descuidar tu salud mientras estudias.</p>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold text-gray-900">$99</span><span class="text-gray-500">/mes MXN</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-600">
+                        <li class="flex items-start gap-3 font-semibold text-gray-900"><i class="fa-solid fa-plus text-brand-500 mt-1"></i> <span>Todo lo del Plan Basic, más:</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Lista de Compras Automática</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Meal Prep y Cero Desperdicios</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Mapa "Cerca de Ti"</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-check text-brand-500 mt-1"></i> <span>Notificaciones Personalizadas</span></li>
+                    </ul>
+                    <button class="w-full py-3 px-4 bg-brand-500 text-white font-bold rounded-xl hover:bg-brand-600 shadow-md transition">Prueba Gratis 7 días</button>
+                </div>
+
+                <!-- Plan Premium -->
+                <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-lg relative text-white">
+                    <h3 class="text-xl font-bold text-white">Plan Premium</h3>
+                    <p class="text-sm text-gray-400 mt-1 mb-4 h-10">Tu asistente personal de salud y éxito académico.</p>
+                    <div class="my-6">
+                        <span class="text-4xl font-extrabold text-white">$299</span><span class="text-gray-400">/mes MXN</span>
+                    </div>
+                    <ul class="space-y-4 mb-8 text-sm text-gray-300">
+                        <li class="flex items-start gap-3 font-semibold text-white"><i class="fa-solid fa-plus text-accent-500 mt-1"></i> <span>Todo lo del Plan Pro, más:</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-star text-accent-500 mt-1"></i> <span>Dietas Personalizadas por Nutriólogos</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-star text-accent-500 mt-1"></i> <span>Sincronización Académica</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-star text-accent-500 mt-1"></i> <span>Acompañamiento Profesional</span></li>
+                        <li class="flex items-start gap-3"><i class="fa-solid fa-star text-accent-500 mt-1"></i> <span>Sin Publicidad</span></li>
+                    </ul>
+                    <button class="w-full py-3 px-4 bg-gray-800 text-white border border-gray-600 font-bold rounded-xl hover:bg-gray-700 hover:border-gray-500 transition">Obtener Premium</button>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Modal Botón de Pánico -->
     <div id="panicModal" class="fixed inset-0 z-50 hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <!-- ... (Contenido modal sin cambios) ... -->
         <div class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
         
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
@@ -358,7 +419,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 mt-20">
+    <footer class="bg-gray-900 text-gray-300 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="col-span-1 md:col-span-2">
                 <div class="flex items-center gap-2 mb-4">
@@ -374,9 +435,9 @@
             <div>
                 <h4 class="text-white font-bold mb-4">Plataforma</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-brand-400 transition">Para Estudiantes</a></li>
-                    <li><a href="#" class="hover:text-brand-400 transition">Para Nutriólogos (B2B)</a></li>
-                    <li><a href="#" class="hover:text-brand-400 transition">Casos de Éxito</a></li>
+                    <li><a href="#funcionalidades" class="hover:text-brand-400 transition">Para Estudiantes</a></li>
+                    <li><a href="#funcionalidades" class="hover:text-brand-400 transition">Para Nutriólogos (B2B)</a></li>
+                    <li><a href="#planes" class="hover:text-brand-400 transition">Planes y Precios</a></li>
                 </ul>
             </div>
             <div>
@@ -393,19 +454,16 @@
     <!-- Scripts para la interactividad -->
     <script>
         function switchTab(tabId) {
-            // Ocultar todos los contenidos
             document.querySelectorAll('.tab-content').forEach(el => {
                 el.classList.remove('active');
             });
             
-            // Restablecer estilos de los botones
             const btnEstudiante = document.getElementById('btn-estudiante');
             const btnNutriologo = document.getElementById('btn-nutriologo');
             
             btnEstudiante.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-gray-500 hover:text-gray-700";
             btnNutriologo.className = "relative w-48 py-3 text-sm sm:text-base font-semibold rounded-xl z-10 transition-colors text-gray-500 hover:text-gray-700";
 
-            // Activar contenido y botón seleccionado
             document.getElementById('tab-' + tabId).classList.add('active');
             
             if(tabId === 'estudiante') {
@@ -415,7 +473,6 @@
             }
         }
 
-        // Lógica del Modal "Botón de Pánico"
         function openModal() {
             document.getElementById('panicModal').classList.remove('hidden');
         }
@@ -427,7 +484,6 @@
         function toggleAdvice(id) {
             const el = document.getElementById('advice-' + id);
             if(el.classList.contains('hidden')) {
-                // Ocultar todos primero (opcional, para modo acordeón)
                 document.querySelectorAll('[id^="advice-"]').forEach(d => d.classList.add('hidden'));
                 el.classList.remove('hidden');
             } else {
